@@ -8,7 +8,7 @@ import java.util.Map;
 
 import _00_universalUtil.DbConnector;
 
-public class FindFoodsDao {
+public class FindFoodDao {
 	private ResultSet resultOfSelectQuery = null;
 	private Map<Integer, Food> menu = null;
 	private Map<Integer, Store> storePortfolio = null;
