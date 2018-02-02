@@ -1,49 +1,29 @@
 package _00_universalUtil;
 
-import java.util.Map;
-import java.util.Set;
-
-import _01_model.Food;
-
 public class RandomUtil {
 	/*
-	 * Map物件menu需裝準備要亂數的Food物件，key是各Food物件的food_id
-	 * 
-	 * foodIdArray用來裝Map物件menu的key值
-	 * 
-	 * Map物件threeRandomRecommend用來裝要回傳的三個亂數推薦的Food物件
-	 * key是各該Food物件的food_id
+	 * 建構子傳入要亂數排序的陣列Integer[] integerArray
+	 * randomSortedArray陣列則用來保存亂數排序後的結果
 	 */
-	private Map<Integer, Food> menu = null;
-	private Integer[] foodIdArray = null;
-	private Map<Integer, Food> threeRandomRecommend = null;
+	private Integer[] integerArray = null;
+	private Integer[] randomSortedArray = null;
 	
-	public RandomUtil(Map<Integer, Food> menu) {
-		super();
-		this.menu = menu;
+	public RandomUtil(Integer[] integerArray) {
+		this.integerArray = integerArray;
 	}
 	
-	public Map<Integer, Food> getThreeRandomDishes() {
-		randomizeMenu();
-		threeRandomRecommend.put(foodIdArray[0], menu.get(foodIdArray[0]));
-		threeRandomRecommend.put(foodIdArray[1], menu.get(foodIdArray[1]));
-		threeRandomRecommend.put(foodIdArray[2], menu.get(foodIdArray[2]));
-		return threeRandomRecommend;
+	public Integer[] getThreeRandomPicks() {
+		randomSortedArray = randomizeArray(integerArray);
+		return new Integer[]{randomSortedArray[0], randomSortedArray[1], randomSortedArray[2]};
 	}
 	
-	private void randomizeMenu() {
-		extractFoodIdsToArray();
-		int picks = 3;
-		for (int index = 0; index < picks; index++) {
-		    int randomIndex = (int)(Math.random() * foodIdArray.length);
-		    int temp = foodIdArray[randomIndex];
-		    foodIdArray[randomIndex] = foodIdArray[index];
-		    foodIdArray[index] = temp;
+	private Integer[] randomizeArray(Integer[] array) {
+		for (int index = 0; index < 3; index++) {
+			int randomIndex = (int) (Math.random() * array.length);
+			int temp = array[randomIndex];
+			array[randomIndex] = array[index];
+			array[index] = temp;
 		}
-	}
-	
-	private void extractFoodIdsToArray() {
-		Set<Integer> keys = menu.keySet();
-		foodIdArray = keys.toArray(new Integer[keys.size()]);
+		return array;
 	}
 }

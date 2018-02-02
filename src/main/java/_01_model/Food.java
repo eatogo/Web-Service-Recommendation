@@ -141,5 +141,14 @@ public class Food {
 	public void setFood_review_count(Long food_review_count) {
 		this.food_review_count = food_review_count;
 	}
+
+	@Override
+	public String toString() {
+		return "Food [food_id=" + food_id + ", food_name=" + food_name + ", food_price=" + food_price + ", food_intro="
+				+ food_intro + ", food_pic_hdpi=" + food_pic_hdpi + ", food_pic_ldpi=" + food_pic_ldpi
+				+ ", food_pic_mdpi=" + food_pic_mdpi + ", food_pic=" + food_pic + ", food_limit=" + food_limit
+				+ ", food_type=" + food_type + ", food_store=" + food_store + ", food_status=" + food_status
+				+ ", food_review_count=" + food_review_count + "]";
+	}
 	
 }
