@@ -1,6 +1,6 @@
 package _00_universalUtil;
 
-import _01_model.Place;
+import _00_universalUtil.model.Place;
 
 public class LocationUtil {
 

@@ -1,4 +1,4 @@
-package _01_model;
+package _00_universalUtil.model;
 
 public class Store {
 	private Integer store_id;

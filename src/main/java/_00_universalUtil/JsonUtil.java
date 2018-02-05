@@ -7,15 +7,20 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import _01_model.Food;
-import _01_model.Store;
+import _00_universalUtil.model.Food;
+import _00_universalUtil.model.FoodWithLatLng;
+import _00_universalUtil.model.Store;
 
 /*
  * 此類別負責將物件轉換為JSON
  * 或將JSON轉換為物件
  */
-public class JsonGsonUtil {
+public class JsonUtil {
 	private Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+	
+	public FoodWithLatLng convertToFoodWithLatLngFrom(String jsonString) {
+		return gson.fromJson(jsonString, FoodWithLatLng.class);
+	}
 	
 	public Object jsonToObject(String jsonString, Object typeIdicator) {
 		return gson.fromJson(jsonString, typeIdicator.getClass());
